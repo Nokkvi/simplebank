@@ -24,4 +24,7 @@ sqlcgenerate:
 test:
 	go test -v -cover ./...
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlcinit sqlcgenerate
+server:
+	go run main.go
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlcinit sqlcgenerate server

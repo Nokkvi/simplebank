@@ -7,6 +7,9 @@ createdb:
 dropdb:
 	docker exec -it postgres dropdb -U admin simple_bank
 
+mock:
+	mockgen -build_flags=--mod=mod -package mockdb -destination db/mock/store.go github.com/nokkvi/simplebank/db/sqlc Store
+
 migrateup:
 	migrate -path db/migration -database "postgresql://admin:secret@localhost:3000/simple_bank?sslmode=disable" -verbose up
 
@@ -27,4 +30,4 @@ test:
 server:
 	go run main.go
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlcinit sqlcgenerate server
+.PHONY: postgres createdb dropdb mock migrateup migratedown sqlcinit sqlcgenerate server test

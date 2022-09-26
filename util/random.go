@@ -46,3 +46,12 @@ func RandomCurrency() string {
 	n := len(currencies)
 	return currencies[rand.Intn(n)]
 }
+
+// RandomDate generates a random date
+func RandomDate() time.Time {
+    randomTime := rand.Int63n(time.Now().Unix() - 94608000) + 94608000
+
+    randomNow := time.Unix(randomTime, 0)
+
+    return randomNow.UTC()
+}

@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"math/rand"
 	"strings"
 	"time"
@@ -54,4 +55,9 @@ func RandomDate() time.Time {
     randomNow := time.Unix(randomTime, 0)
 
     return randomNow.UTC()
+}
+
+// RandomEmail generates a random email address
+func RandomEmail() string {
+	return fmt.Sprintf("%s@email.com", RandomString(6))
 }

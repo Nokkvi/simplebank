@@ -13,8 +13,14 @@ mock:
 migrateup:
 	migrate -path db/migration -database "postgresql://admin:secret@localhost:3000/simple_bank?sslmode=disable" -verbose up
 
+migrateup1:
+	migrate -path db/migration -database "postgresql://admin:secret@localhost:3000/simple_bank?sslmode=disable" -verbose up 1
+
 migratedown:
 	migrate -path db/migration -database "postgresql://admin:secret@localhost:3000/simple_bank?sslmode=disable" -verbose down
+
+migratedown1:
+	migrate -path db/migration -database "postgresql://admin:secret@localhost:3000/simple_bank?sslmode=disable" -verbose down 1
 
 # may need to be run manually
 sqlcinit:
@@ -30,4 +36,4 @@ test:
 server:
 	go run main.go
 
-.PHONY: postgres createdb dropdb mock migrateup migratedown sqlcinit sqlcgenerate server test
+.PHONY: postgres createdb dropdb mock migrateup migrateup1 migratedown migratedown1 sqlcinit sqlcgenerate server test

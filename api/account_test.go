@@ -107,7 +107,7 @@ func TestCreateAccount(t *testing.T) {
 			
 		
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 		
 			url := fmt.Sprintf("/accounts")
@@ -187,7 +187,7 @@ func TestGetAccount(t *testing.T) {
 			
 		
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 		
 			url := fmt.Sprintf("/accounts/%d", tc.accountID)
@@ -283,7 +283,7 @@ func TestListAccounts(t *testing.T) {
 			
 		
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 		
 			url := fmt.Sprintf("/accounts?page_id=%d&page_size=%d", tc.pageID, tc.pageSize)
@@ -354,7 +354,7 @@ func TestDeleteAccount(t *testing.T) {
 			
 		
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 		
 			url := fmt.Sprintf("/accounts/%d", tc.accountID)

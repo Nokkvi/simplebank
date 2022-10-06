@@ -81,7 +81,7 @@ func TestGetEntry(t *testing.T) {
 			
 		
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 		
 			url := fmt.Sprintf("/entries/%d", tc.entryID)
@@ -195,7 +195,7 @@ func TestListEntries(t *testing.T) {
 			
 		
 			// start test server and send request
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 		
 			url := fmt.Sprintf("/entries?page_id=%d&page_size=%d&account_id=%d", tc.pageID, tc.pageSize, tc.accountID)

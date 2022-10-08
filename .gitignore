@@ -24,4 +24,4 @@ go.work
 .vscode
 
 *.env
-!test.env
+!app.env
